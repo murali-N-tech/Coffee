@@ -14,8 +14,8 @@ const importData = async () => {
     // 2. Create the Admin User
     const adminUser = new User({
       username: 'Owner',
-      email: 'admin@chennapatanam.com',
-      password: 'password123', // This will be hashed by the User model pre-save hook
+      email: 'muralinaga826@gmail.com',
+      password: 'Murali@', // This will be hashed by the User model pre-save hook
       role: 'Owner',
     });
 

@@ -1,12 +1,13 @@
 // Admin Sidebar component 
 import { NavLink } from 'react-router-dom';
-import { FiHome, FiCoffee, FiList, FiSettings, FiGrid } from 'react-icons/fi';
+import { FiHome, FiCoffee, FiList, FiSettings, FiGrid, FiShoppingBag } from 'react-icons/fi';
 
 const AdminSidebar = ({ isOpen }) => {
   const links = [
     { name: 'Dashboard', path: '/admin/dashboard', icon: <FiHome /> },
     { name: 'Menu Items', path: '/admin/menu', icon: <FiCoffee /> },
     { name: 'Categories', path: '/admin/categories', icon: <FiList /> },
+    { name: 'Shop Products', path: '/admin/products', icon: <FiShoppingBag /> },
     { name: 'Settings', path: '/admin/settings', icon: <FiSettings /> },
   ];
 

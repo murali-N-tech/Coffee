@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useContext } from 'react';
 import { AuthContext, AuthProvider } from './context/AuthContext';
 
+
 // Layouts
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer'; // Import Footer
@@ -10,7 +11,8 @@ import Footer from './components/layout/Footer'; // Import Footer
 import Home from './pages/public/Home';
 import Menu from './pages/public/Menu';
 import About from './pages/public/About';     // Import About
-import Contact from './pages/public/Contact'; // Import Contact
+import Contact from './pages/public/Contact';
+import Shop from './pages/public/Shop'; // Import Contact
 
 // Admin Pages
 import Login from './pages/admin/Login';
@@ -18,6 +20,7 @@ import Dashboard from './pages/admin/Dashboard';
 import ManageMenu from './pages/admin/ManageMenu';
 import ManageCategories from './pages/admin/ManageCategories';
 import Settings from './pages/admin/Settings';
+import ManageShop from './pages/admin/ManageShop';
 
 // Error Page
 import NotFound from './pages/NotFound';
@@ -49,6 +52,7 @@ function App() {
           <Route path="/" element={<PublicLayout><Home /></PublicLayout>} />
           <Route path="/menu" element={<PublicLayout><Menu /></PublicLayout>} />
           <Route path="/about" element={<PublicLayout><About /></PublicLayout>} />
+          <Route path="/shop" element={<PublicLayout><Shop /></PublicLayout>} /> 
           <Route path="/contact" element={<PublicLayout><Contact /></PublicLayout>} />
 
           {/* ================= ADMIN ROUTES ================= */}
@@ -64,6 +68,9 @@ function App() {
           
           <Route path="/admin/categories" element={
             <ProtectedRoute><ManageCategories /></ProtectedRoute>
+          } />
+          <Route path="/admin/products" element={
+            <ProtectedRoute><ManageShop /></ProtectedRoute>
           } />
           
           <Route path="/admin/settings" element={

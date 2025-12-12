@@ -1,17 +1,54 @@
 import { useState, useEffect } from 'react';
-import { FiPhone, FiMapPin, FiMail, FiClock, FiSend, FiInstagram, FiFacebook } from 'react-icons/fi';
-import { motion } from 'framer-motion';
+import { FiPhone, FiMapPin, FiMail, FiClock, FiSend, FiInstagram, FiFacebook, FiCoffee, FiLoader } from 'react-icons/fi';
+import { motion, AnimatePresence } from 'framer-motion';
 import api from '../../services/api';
+
+// --- CUSTOM COFFEE LOADER COMPONENT ---
+const CoffeeLoader = () => (
+  <div className="min-h-screen flex flex-col items-center justify-center bg-cream">
+    <div className="relative">
+      {/* Steam Animations */}
+      <motion.div
+        animate={{ y: [-5, -20, -5], opacity: [0, 0.7, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-6 left-1 text-gold text-xl font-bold"
+      >
+        ~
+      </motion.div>
+      <motion.div
+        animate={{ y: [-5, -25, -5], opacity: [0, 0.7, 0] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+        className="absolute -top-8 left-4 text-gold text-xl font-bold"
+      >
+        ~
+      </motion.div>
+      <motion.div
+        animate={{ y: [-5, -15, -5], opacity: [0, 0.7, 0] }}
+        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+        className="absolute -top-5 left-7 text-gold text-xl font-bold"
+      >
+        ~
+      </motion.div>
+      
+      {/* Coffee Cup Icon */}
+      <FiCoffee className="w-16 h-16 text-coffee-900" />
+    </div>
+    
+    <motion.p 
+      animate={{ opacity: [0.4, 1, 0.4] }}
+      transition={{ duration: 1.5, repeat: Infinity }}
+      className="mt-4 text-coffee-900 font-serif font-bold tracking-[0.2em] text-sm"
+    >
+      BREWING CONTACT INFO...
+    </motion.p>
+  </div>
+);
 
 const Contact = () => {
   const [settings, setSettings] = useState(null);
   const [loading, setLoading] = useState(true);
   const [formStatus, setFormStatus] = useState('idle'); // idle, sending, success, error
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', message: '' });
-
-  // DEFAULT MAP (Fallback if admin hasn't set one yet)
-  const defaultMap =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.664197354163!2d80.9936848751438!3d16.44185208429396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3605c487375275%3A0x6a0c5c641882d92d!2sGudivada%20Bus%20Stand!5e0!3m2!1sen!2sin!4v1709900000000";
 
   // 1. FETCH REAL SETTINGS FROM DATABASE
   useEffect(() => {
@@ -22,7 +59,8 @@ const Contact = () => {
       } catch (error) {
         console.error("Failed to load settings", error);
       } finally {
-        setLoading(false);
+        // Added a slight delay so users can enjoy the brewing animation
+        setTimeout(() => setLoading(false), 1000);
       }
     };
     fetchSettings();
@@ -49,13 +87,12 @@ const Contact = () => {
     } catch (error) {
       console.error("Email failed", error);
       alert('Failed to send message.');
-      setFormStatus('error');
-      // optionally revert to idle after some time
-      setTimeout(() => setFormStatus('idle'), 3000);
+      setFormStatus('idle');
     }
   };
 
-  if (loading) return <div className="min-h-screen flex justify-center items-center bg-cream">Loading...</div>;
+  // --- SHOW LOADER IF LOADING ---
+  if (loading) return <CoffeeLoader />;
 
   // 3. DEFINE CARDS USING REAL DATA
   const contactCards = [
@@ -81,6 +118,9 @@ const Contact = () => {
       color: "bg-green-50 text-green-600"
     }
   ];
+
+  // Default Map
+  const defaultMap = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.664197354163!2d80.9936848751438!3d16.44185208429396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3605c487375275%3A0x6a0c5c641882d92d!2sGudivada%20Bus%20Stand!5e0!3m2!1sen!2sin!4v1709900000000";
 
   return (
     <div className="min-h-screen bg-cream pb-20 overflow-x-hidden">
@@ -137,56 +177,79 @@ const Contact = () => {
             <p className="text-gray-500 mb-8">We usually reply within a few hours.</p>
 
             {formStatus === 'success' ? (
-              <div className="bg-green-50 border border-green-200 text-green-700 p-6 rounded-xl text-center">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-green-50 border border-green-200 text-green-700 p-6 rounded-xl text-center"
+              >
+                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                   <FiCoffee size={32} />
+                </div>
                 <h3 className="font-bold text-xl mb-2">Message Sent! ☕</h3>
                 <p>Thank you. We'll get back to you shortly.</p>
-              </div>
+              </motion.div>
             ) : (
               <form onSubmit={handleSendMessage} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full bg-coffee-50 rounded-xl px-4 py-3 outline-none focus:border-gold border border-transparent"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="phone"
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full bg-coffee-50 rounded-xl px-4 py-3 outline-none focus:border-gold border border-transparent"
-                  />
+                  <div className="relative">
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className="w-full bg-coffee-50 rounded-xl px-4 py-3 outline-none focus:border-gold border border-transparent transition-all placeholder-gray-400"
+                        required
+                    />
+                  </div>
+                  <div className="relative">
+                    <input
+                        type="text"
+                        name="phone"
+                        placeholder="Phone Number"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full bg-coffee-50 rounded-xl px-4 py-3 outline-none focus:border-gold border border-transparent transition-all placeholder-gray-400"
+                    />
+                  </div>
                 </div>
                 <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full bg-coffee-50 rounded-xl px-4 py-3 outline-none focus:border-gold border border-transparent"
-                  required
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full bg-coffee-50 rounded-xl px-4 py-3 outline-none focus:border-gold border border-transparent transition-all placeholder-gray-400"
+                    required
                 />
                 <textarea
-                  rows="4"
-                  name="message"
-                  placeholder="How can we help you?"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full bg-coffee-50 rounded-xl px-4 py-3 outline-none focus:border-gold border border-transparent"
-                  required
+                    rows="4"
+                    name="message"
+                    placeholder="How can we help you?"
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full bg-coffee-50 rounded-xl px-4 py-3 outline-none focus:border-gold border border-transparent transition-all placeholder-gray-400 resize-none"
+                    required
                 ></textarea>
                 
                 <button
                   type="submit"
                   disabled={formStatus === 'sending'}
-                  className="w-full bg-coffee-900 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-gold hover:text-coffee-900 transition-all"
+                  className="w-full bg-coffee-900 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-gold hover:text-coffee-900 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
+                  {formStatus === 'sending' ? (
+                    <>
+                      <motion.div 
+                        animate={{ rotate: 360 }} 
+                        transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                      >
+                        <FiLoader />
+                      </motion.div>
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>Send Message <FiSend /></>
+                  )}
                 </button>
               </form>
             )}
@@ -233,7 +296,7 @@ const Contact = () => {
             {/* Social Links */}
             <div className="flex justify-center gap-6">
               {[FiInstagram, FiFacebook].map((Icon, i) => (
-                <a key={i} href={settings?.social?.[i] || '#'} className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-coffee-900 hover:bg-gold hover:text-white transition-all shadow-md hover:scale-110">
+                <a key={i} href="#" className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-coffee-900 hover:bg-gold hover:text-white transition-all shadow-md hover:scale-110">
                   <Icon size={24} />
                 </a>
               ))}

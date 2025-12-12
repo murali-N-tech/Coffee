@@ -5,20 +5,52 @@ import OutletGallery from '../../components/public/OutletGallery';
 import { FiShoppingBag, FiStar, FiCheckCircle, FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import api from '../../services/api'; // Import API
+import api from '../../services/api';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
 
-  // Fetch Real Shop Products
+  // 1. STATIC PRODUCTS (The Core Items you want to show)
+  const staticProducts = [
+    {
+      _id: 'static-1',
+      name: "Classic Blend (80/20)",
+      price: 250,
+      tag: "Best Seller",
+      // Using the Cloudinary links generated for you
+      imageURL: "https://res.cloudinary.com/dkpjimiip/image/upload/v1765564120/Gemini_Generated_Image_683edf683edf683e_sppyh1.png"
+    },
+    {
+      _id: 'static-2',
+      name: "Pure Coffee Gold Blend",
+      price: 300,
+      tag: "Premium",
+      imageURL: "https://res.cloudinary.com/dkpjimiip/image/upload/v1765564465/Gemini_Generated_Image_btbdi0btbdi0btbd_atzxzk.png"
+    },
+    {
+      _id: 'static-3',
+      name: "CFC Honey",
+      price: 850,
+      tag: "Natural",
+      imageURL: "https://res.cloudinary.com/dkpjimiip/image/upload/v1765564787/Gemini_Generated_Image_8n2dpy8n2dpy8n2d_inwbn6.png"
+    }
+  ];
+
+  // 2. Fetch & Merge Logic
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const { data } = await api.get('/products');
-        // Take only the first 3 products for the preview
-        setProducts(data.slice(0, 3));
+        
+        // Combine Static items FIRST, then add any dynamic items from DB
+        const allProducts = [...staticProducts, ...data];
+        
+        // Only show the top 3 items on the Home page
+        setProducts(allProducts.slice(0, 3));
       } catch (error) {
-        console.error("Failed to load home products");
+        console.error("Failed to load DB products, showing static only.");
+        // Fallback: Show static products if API fails
+        setProducts(staticProducts);
       }
     };
     fetchProducts();
@@ -121,49 +153,39 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION 4: Retail Store Preview (NOW DYNAMIC) */}
+      {/* SECTION 4: Retail Store Preview (UPDATED) */}
       <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto text-center">
           <span className="text-gold font-bold tracking-widest uppercase text-sm">Retail Store</span>
           <h2 className="text-4xl font-serif font-bold text-coffee-900 mt-2 mb-4">Bring the Tradition Home</h2>
           <p className="text-gray-600 mb-12 max-w-2xl mx-auto">Shop our authentic coffee powders and brew the perfect cup in your own kitchen.</p>
           
-          {products.length > 0 ? (
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-              {products.map((item) => (
-                <div key={item._id} className="border border-coffee-100 rounded-xl p-6 relative group hover:border-gold transition bg-cream/30">
-                  {/* Tag */}
-                  {item.tag && (
-                    <span className="absolute top-4 right-4 bg-coffee-100 text-coffee-800 text-xs font-bold px-2 py-1 rounded shadow-sm">{item.tag}</span>
-                  )}
-                  
-                  {/* Product Image */}
-                  <div className="h-40 bg-white rounded-lg mb-6 overflow-hidden shadow-inner relative">
-                     <img 
-                       src={item.imageURL || 'https://via.placeholder.com/300'} 
-                       alt={item.name} 
-                       className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                     />
-                  </div>
-                  
-                  {/* Details */}
-                  <h3 className="text-xl font-bold text-coffee-900 font-serif line-clamp-1">{item.name}</h3>
-                  <p className="text-gold font-bold text-lg mt-2">₹{item.price}</p>
-                  
-                  {/* Link to Full Shop */}
-                  <Link to="/shop" className="mt-4 block w-full py-2 border-2 border-coffee-900 text-coffee-900 font-bold rounded hover:bg-coffee-900 hover:text-white transition">
-                     View Details
-                  </Link>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+            {products.map((item) => (
+              <div key={item._id} className="border border-coffee-100 rounded-xl p-6 relative group hover:border-gold transition bg-cream/30">
+                {item.tag && (
+                  <span className="absolute top-4 right-4 bg-coffee-100 text-coffee-800 text-xs font-bold px-2 py-1 rounded shadow-sm">{item.tag}</span>
+                )}
+                
+                {/* Product Image Container */}
+                <div className="h-48 bg-white rounded-lg mb-6 overflow-hidden shadow-inner relative flex items-center justify-center p-4">
+                   <img 
+                     src={item.imageURL || 'https://via.placeholder.com/300'} 
+                     alt={item.name} 
+                     className="h-full w-auto object-contain transform group-hover:scale-105 transition-transform duration-500"
+                   />
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-10">
-               <p className="text-gray-400">Loading products...</p>
-            </div>
-          )}
+                
+                <h3 className="text-xl font-bold text-coffee-900 font-serif line-clamp-1">{item.name}</h3>
+                <p className="text-gold font-bold text-lg mt-2">₹{item.price}</p>
+                
+                <Link to="/shop" className="mt-4 block w-full py-2 border-2 border-coffee-900 text-coffee-900 font-bold rounded hover:bg-coffee-900 hover:text-white transition">
+                   View Details
+                </Link>
+              </div>
+            ))}
+          </div>
           
-          {/* Main Shop Button */}
           <Link to="/shop" className="inline-flex items-center gap-2 text-coffee-900 font-bold border-b-2 border-gold hover:text-gold transition pb-1">
              Visit Full Shop <FiArrowRight />
           </Link>

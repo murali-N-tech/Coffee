@@ -1,9 +1,9 @@
 const OutletGallery = () => {
   const images = [
-    "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1000", // Cafe interior
-    "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1000", // Coffee cup close up
-    "https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1000", // Barista pouring
-    "https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&w=1000"  // Customers
+    "https://res.cloudinary.com/dkpjimiip/image/upload/v1765565558/IMG_20251121_212431_akg0ei.jpg", // Cafe interior
+    "https://res.cloudinary.com/dkpjimiip/image/upload/v1765565675/IMG_20251029_141504_mgywcp.jpg", // Coffee cup close up
+    "https://res.cloudinary.com/dkpjimiip/image/upload/v1765565825/IMG_20251213_001400_eny7c3.jpg", // Barista pouring
+    "https://res.cloudinary.com/dkpjimiip/image/upload/v1765565992/IMG-20251201-WA0013_1_wgur7p.jpg"  // Customers
   ];
 
   return (
@@ -11,7 +11,7 @@ const OutletGallery = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-gold uppercase tracking-widest font-bold text-sm">Ambiance</span>
-          <h2 className="text-3xl font-serif font-bold text-coffee-900 mt-2">Life at Chennapatnam</h2>
+          <h2 className="text-3xl font-serif font-bold text-coffee-900 mt-2">Life at Chennapatnam Filter Coffee Gudivada</h2>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

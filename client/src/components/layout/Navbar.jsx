@@ -57,7 +57,7 @@ const Navbar = () => {
             {/* Text Block */}
             <div className="flex flex-col">
               <span className="font-serif text-xl font-bold text-white tracking-wide leading-none">
-                Chennna <span className="text-gold">Patanam</span>
+                CHENNA <span className="text-gold">PATNAM</span>
               </span>
               <span className="text-[10px] text-coffee-200 uppercase tracking-[0.2em]">Filter Coffee</span>
             </div>
@@ -85,11 +85,11 @@ const Navbar = () => {
 
             {/* Shop CTA Button */}
             <Link 
-              to="/shop" 
+              to="/menu" 
               className="flex items-center gap-2 px-5 py-2.5 bg-gold text-coffee-900 rounded-full font-bold text-sm shadow-lg hover:bg-white hover:text-coffee-900 transition-all transform hover:scale-105 active:scale-95"
             >
               <FiShoppingBag />
-              <span>Shop Now</span>
+              <span>Show menu</span>
             </Link>
           </div>
 

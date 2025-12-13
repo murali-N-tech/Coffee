@@ -90,7 +90,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center gap-3 group w-fit">
                <img src={logo} alt="Chennna Patanam" className="w-12 h-12 rounded-xl object-cover shadow-lg group-hover:rotate-6 transition-transform" />
                <div className="flex flex-col">
-                 <span className="font-serif text-2xl font-bold tracking-wide leading-none">Chennna <span className="text-gold">Patanam</span></span>
+                 <span className="font-serif text-2xl font-bold tracking-wide leading-none">CHENNA <span className="text-gold">PATNAM</span></span>
                  <span className="text-[10px] text-coffee-300 uppercase tracking-widest">Filter Coffee</span>
                </div>
             </Link>
@@ -144,19 +144,19 @@ const Footer = () => {
                 <div className="bg-white/10 p-2 rounded-full text-gold shrink-0 mt-1">
                   <FiMapPin />
                 </div>
-                <span>12-34, Main Road, Near Bus Stand,<br/>Gudivada, Andhra Pradesh, 521301</span>
+                <span>Eluru -Gudivada main road near VKR VNB Engineering College,<br/>Gudivada, Andhra Pradesh, 521301</span>
               </li>
               <li className="flex items-center gap-4">
                 <div className="bg-white/10 p-2 rounded-full text-gold shrink-0">
                   <FiPhone />
                 </div>
-                <span className="font-bold text-white hover:text-gold cursor-pointer transition">+91 98765 43210</span>
+                <span className="font-bold text-white hover:text-gold cursor-pointer transition">+91 95425 49529</span>
               </li>
               <li className="flex items-center gap-4">
                 <div className="bg-white/10 p-2 rounded-full text-gold shrink-0">
                   <FiMail />
                 </div>
-                <span className="hover:text-gold cursor-pointer transition">hello@chennapatanam.com</span>
+                <span className="hover:text-gold cursor-pointer transition">chennapatnamgudivada@gmail.com  </span>
               </li>
             </ul>
           </div>

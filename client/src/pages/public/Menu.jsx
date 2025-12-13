@@ -89,9 +89,9 @@ const Menu = () => {
 
     // --- SNACKS ---
     { _id: '901', name: 'Corn Samosa', price: 12, category: { name: 'Snacks' }, description: 'Crispy corn filled samosa.', imageURL: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800' },
-    { _id: '902', name: 'Punjabi Samosa (3 Pcs)', price: 40, category: { name: 'Snacks' }, description: 'Classic potato filled samosa.', imageURL: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=800' },
+    { _id: '902', name: 'Punjabi Samosa (3 Pcs)', price: 40, category: { name: 'Snacks' }, description: 'Classic potato filled samosa.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765614178/Gemini_Generated_Image_vvau82vvau82vvau_ff55dn.png' },
     { _id: '903', name: 'Sweet Corn', price: 50, category: { name: 'Snacks' }, description: 'Steamed sweet corn.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765562477/Screenshot_2025-12-12_232916_h3fxo6.png' },
-    { _id: '904', name: 'Masala Corn', price: 60, category: { name: 'Snacks' }, description: 'Spicy masala sweet corn.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765562477/Screenshot_2025-12-12_232916_h3fxo6.png' },
+    { _id: '904', name: 'Masala Corn', price: 60, category: { name: 'Snacks' }, description: 'Spicy masala sweet corn.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765614323/Gemini_Generated_Image_tzwd3mtzwd3mtzwd_v3cz65.png' },
 
     // --- FRIES & STARTERS ---
     { _id: '905', name: 'French Fries', price: 80, category: { name: 'Fries & Starters' }, description: 'Classic salted fries.', imageURL: 'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?q=80&w=800' },

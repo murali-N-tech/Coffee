@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FiHeart, FiUsers, FiAward, FiCheck } from 'react-icons/fi';
 // Ensure your logo is saved as cfc-logo.png in src/assets/
-import logo from '../../assets/images/cfc-logo.png'; 
+import logo from '../../assets/images/logo.png'; 
 
 const About = () => {
   // Animation variants

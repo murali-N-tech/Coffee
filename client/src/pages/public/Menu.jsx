@@ -59,10 +59,10 @@ const Menu = () => {
 
     // --- MILKSHAKE ---
     { _id: '601', name: 'Chocolate Milkshake', price: 110, category: { name: 'Milkshake' }, description: 'Thick chocolate shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765556603/IMG-20251211-WA0013_x7oz5h.jpg' },
-    { _id: '602', name: 'Mango Milkshake', price: 110, category: { name: 'Milkshake' }, description: 'Seasonal mango shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765558605/mango_pt0vco.jpg' },
-    { _id: '603', name: 'Strawberry Milkshake', price: 110, category: { name: 'Milkshake' }, description: 'Sweet strawberry shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765558605/straberry_l5ldpt.jpg' },
+    { _id: '602', name: 'Mango Milkshake', price: 110, category: { name: 'Milkshake' }, description: 'Seasonal mango shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765615676/Gemini_Generated_Image_vffop3vffop3vffo_vmd4wa.png' },
+    { _id: '603', name: 'Strawberry Milkshake', price: 110, category: { name: 'Milkshake' }, description: 'Sweet strawberry shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765615816/Gemini_Generated_Image_tvdd49tvdd49tvdd_ddpn8i.png' },
     { _id: '604', name: 'Badam Milkshake', price: 110, category: { name: 'Milkshake' }, description: 'Rich almond shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765558792/Gemini_Generated_Image_zb7mf5zb7mf5zb7m_gyvmic.png' },
-    { _id: '605', name: 'Vanilla Milkshake', price: 110, category: { name: 'Milkshake' }, description: 'Classic vanilla shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765558605/Vinella_ap9elw.jpg' },
+    { _id: '605', name: 'Vanilla Milkshake', price: 110, category: { name: 'Milkshake' }, description: 'Classic vanilla shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765615814/Gemini_Generated_Image_g7vr1lg7vr1lg7vr_im8qod.png' },
     { _id: '606', name: 'Blackcurrant Milkshake', price: 120, category: { name: 'Milkshake' }, description: 'Berry flavored shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765558605/staraberry_vtmucn.jpg' },
     { _id: '607', name: 'Blue Berry Milkshake', price: 120, category: { name: 'Milkshake' }, description: 'Exotic blueberry shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765559650/Gemini_Generated_Image_yuo1mgyuo1mgyuo1_frvktj.png' },
     { _id: '608', name: 'Spl. Rose Milkshake', price: 120, category: { name: 'Milkshake' }, description: 'Premium rose shake.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765559809/Gemini_Generated_Image_gbxr1ngbxr1ngbxr_hf2sps.png' },

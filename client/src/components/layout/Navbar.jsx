@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiMenu, FiX, FiShoppingBag } from 'react-icons/fi';
+import { FiMenu, FiX, FiShoppingBag, FiBookOpen } from 'react-icons/fi'; // Added FiBookOpen
 import { motion, AnimatePresence } from 'framer-motion';
-// Logo from assets/images folder
+// Ensure this path matches your file structure
 import logo from '../../assets/images/cfc-logo.png'; 
 
 const Navbar = () => {
@@ -46,10 +46,6 @@ const Navbar = () => {
                 <img 
                   src={logo} 
                   alt="CFC Logo" 
-                  // rounded-full: Makes it circular
-                  // object-cover: Ensures image fills the circle without stretching
-                  // h-14 w-14: Equal height and width for a perfect circle
-                  // border-2 border-gold: Adds a premium ring around it
                   className="h-14 w-14 rounded-full object-cover border-2 border-gold shadow-lg transform transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110 bg-white" 
                 />
             </div>
@@ -83,21 +79,21 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* Shop CTA Button */}
+            {/* Menu Highlight CTA Button */}
             <Link 
               to="/menu" 
               className="flex items-center gap-2 px-5 py-2.5 bg-gold text-coffee-900 rounded-full font-bold text-sm shadow-lg hover:bg-white hover:text-coffee-900 transition-all transform hover:scale-105 active:scale-95"
             >
-              <FiShoppingBag />
-              <span>Show menu</span>
+              <FiBookOpen /> {/* Changed to Book/Menu Icon */}
+              <span>View Menu</span>
             </Link>
           </div>
 
           {/* ================= MOBILE TOGGLE ================= */}
           <div className="md:hidden flex items-center">
-             {/* Shop Icon Mobile */}
-            <Link to="/shop" className="mr-4 text-gold hover:text-white transition">
-              <FiShoppingBag size={22} />
+             {/* Mobile Quick Link: Menu instead of Shop */}
+            <Link to="/menu" className="mr-4 text-gold hover:text-white transition">
+              <FiBookOpen size={22} />
             </Link>
             
             <button
@@ -154,11 +150,12 @@ const Navbar = () => {
                className="pt-8"
             >
                <Link 
-                 to="/shop" 
+                 to="/menu" 
                  onClick={() => setIsOpen(false)}
-                 className="px-8 py-3 bg-gold text-coffee-900 rounded-full font-bold text-lg shadow-xl"
+                 className="px-8 py-3 bg-gold text-coffee-900 rounded-full font-bold text-lg shadow-xl flex items-center gap-2"
                >
-                 Order Coffee
+                 <FiBookOpen />
+                 View Menu
                </Link>
             </motion.div>
           </motion.div>

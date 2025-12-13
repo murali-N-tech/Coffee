@@ -60,7 +60,7 @@ const Home = () => {
     { 
       name: "Classic Chennapatnam Filter Kaapi", 
       desc: "The original gold standard. Served in a traditional brass davara tumbler.", 
-      image: "https://images.unsplash.com/photo-1595928642581-f50f4f3453a5?q=80&w=800&auto=format&fit=crop" 
+      image: "https://res.cloudinary.com/dkpjimiip/image/upload/v1765556603/IMG-20251211-WA0015_cqryrg.jpg" 
     },
     { 
       name: "Bellam Coffee", 
@@ -70,12 +70,12 @@ const Home = () => {
     { 
       name: "Sukku Coffee", 
       desc: "Infused with dry ginger and spices. A soothing remedy for the throat.", 
-      image: "https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop" 
+      image: "https://res.cloudinary.com/dkpjimiip/image/upload/v1765556543/Sukku_coffee_gfjtk7.png" 
     },
     { 
-      name: "First Decoction Coffee", 
+      name: "Strong Black Coffee", 
       desc: "Pure, strong, and intense. For true connoisseurs who love the kick.", 
-      image: "https://images.unsplash.com/photo-1514066558159-fc8c737ef259?q=80&w=800&auto=format&fit=crop" 
+      image: "https://res.cloudinary.com/dkpjimiip/image/upload/v1765556602/IMG-20251211-WA0003_itwdbt.jpg" 
     }
   ];
 

@@ -95,7 +95,7 @@ const Menu = () => {
 
     // --- FRIES & STARTERS ---
     { _id: '905', name: 'French Fries', price: 80, category: { name: 'Fries & Starters' }, description: 'Classic salted fries.', imageURL: 'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?q=80&w=800' },
-    { _id: '906', name: 'Peri Peri French Fries', price: 90, category: { name: 'Fries & Starters' }, description: 'Spicy peri peri fries.', imageURL: 'https://images.unsplash.com/photo-1518013431117-eb1465fa5752?q=80&w=800' },
+    { _id: '906', name: 'Peri Peri French Fries', price: 90, category: { name: 'Fries & Starters' }, description: 'Spicy peri peri fries.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765614735/Gemini_Generated_Image_93nq0n93nq0n93nq_1_uu00u2.png' },
     { _id: '907', name: 'Veg Nuggets (5 Pcs)', price: 80, category: { name: 'Fries & Starters' }, description: 'Crispy vegetable nuggets.', imageURL: 'https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=800' },
     { _id: '908', name: 'Chicken Nuggets (5 Pcs)', price: 90, category: { name: 'Fries & Starters' }, description: 'Crispy chicken nuggets.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765563376/c9306c74-42d8-4b9e-bde1-1d5a632d99e8_dfb1333d-c4fa-4ae2-8408-b373712584f6_hhvpj5.avif' },
     { _id: '909', name: 'Veggie Stix (6 Pcs)', price: 80, category: { name: 'Fries & Starters' }, description: 'Crispy veg sticks.', imageURL: 'https://res.cloudinary.com/dkpjimiip/image/upload/v1765563177/Gemini_Generated_Image_5z6m845z6m845z6m_bt0mtg.png' },

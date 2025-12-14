@@ -1,8 +1,8 @@
 const OutletGallery = () => {
   const images = [
     "https://res.cloudinary.com/dkpjimiip/image/upload/v1765565558/IMG_20251121_212431_akg0ei.jpg", // Cafe interior
-    "https://res.cloudinary.com/dkpjimiip/image/upload/v1765565675/IMG_20251029_141504_mgywcp.jpg", // Coffee cup close up
-    "https://res.cloudinary.com/dkpjimiip/image/upload/v1765565825/IMG_20251213_001400_eny7c3.jpg", // Barista pouring
+    "https://res.cloudinary.com/dkpjimiip/image/upload/v1765688075/IMG-20251214-WA0003_ilo8ph.jpg", // Coffee cup close up
+    "https://res.cloudinary.com/dkpjimiip/image/upload/v1765687869/IMG-20251214-WA0006_tzpzhu.jpg", // Barista pouring
     "https://res.cloudinary.com/dkpjimiip/image/upload/v1765565992/IMG-20251201-WA0013_1_wgur7p.jpg"  // Customers
   ];
 
